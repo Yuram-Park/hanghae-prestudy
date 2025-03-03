@@ -13,9 +13,11 @@ import jakarta.persistence.SequenceGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @SequenceGenerator(
@@ -35,6 +37,8 @@ public class Board {
 	
 	private String userId;
 	
+	private String password;
+	
 	private LocalDateTime time;
 	
 	private String title;
@@ -43,12 +47,13 @@ public class Board {
 	
 	public Board(BoardRequestDto boardRequestDto) {
 		this.userId = boardRequestDto.getUser_id();
+		this.password = boardRequestDto.getPassword();
 		this.title = boardRequestDto.getTitle();
 		this.content = boardRequestDto.getContent();
 	}
 	
-	public void update(BoardDto boardDto) {
-		this.title = boardDto.getTitle();
-		this.content = boardDto.getContent();
+	public void update(BoardRequestDto boardRequestDto) {
+		this.title = boardRequestDto.getTitle();
+		this.content = boardRequestDto.getContent();
 	}
 }

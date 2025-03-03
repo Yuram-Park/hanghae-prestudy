@@ -8,7 +8,7 @@ import lombok.Setter;
 public class BoardRequestDto {
 
 	private String user_id;
-	private String user_nickname;
+	private String password;
 	private String title;
 	private String content;
 }
